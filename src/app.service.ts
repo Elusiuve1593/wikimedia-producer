@@ -5,7 +5,6 @@ import {
   OnModuleInit,
 } from '@nestjs/common';
 import { ClientKafka } from '@nestjs/microservices';
-import { TopicCreateEvent } from './topic-create.event';
 import { EventSource } from 'eventsource';
 
 @Injectable()
@@ -43,12 +42,5 @@ export class AppService implements OnModuleInit, OnModuleDestroy {
     await this.kafkaClient.close();
     this.eventSource.close();
     console.log('EventSource connection closed');
-  }
-
-  sendMessage(message: string) {
-    return this.kafkaClient.emit(
-      'topic_created',
-      new TopicCreateEvent(message),
-    );
   }
 }
