@@ -20,7 +20,6 @@ export class AppService implements OnModuleInit, OnModuleDestroy {
   async onModuleInit() {
     await this.kafkaClient.connect();
     this.startStreaming();
-    console.log('EventSource connection open');
   }
 
   private startStreaming() {
@@ -41,6 +40,5 @@ export class AppService implements OnModuleInit, OnModuleDestroy {
   async onModuleDestroy() {
     await this.kafkaClient.close();
     this.eventSource.close();
-    console.log('EventSource connection closed');
   }
 }
