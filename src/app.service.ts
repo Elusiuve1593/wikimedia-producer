@@ -30,7 +30,7 @@ export class AppService implements OnModuleInit, OnModuleDestroy {
       const data = JSON.parse(event.data);
       console.log('Took change from Wikimedia: ', data);
 
-      this.kafkaClient.emit('wikimedia-changes', data);
+      this.kafkaClient.emit('wikimedia', data);
     };
 
     eventSource.onerror = (err: ErrorEvent) => {

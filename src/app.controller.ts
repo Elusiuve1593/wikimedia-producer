@@ -8,8 +8,8 @@ export class AppController {
   ) {}
 
   @Get('send')
-  sendWikiMediaMessage() {
-    this.kafkaClient.emit('wikimedia-changes', {
+  sendMessage() {
+    this.kafkaClient.emit('test', {
       message: 'Hello from Kafka!',
     });
     return { status: 'Message sent!' };
