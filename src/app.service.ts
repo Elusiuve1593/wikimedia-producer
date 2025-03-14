@@ -21,6 +21,7 @@ export class AppService implements OnModuleInit, OnModuleDestroy {
   async onModuleInit() {
     await this.kafkaClient.connect();
     this.startStreaming();
+    console.log('EventSource connection open');
   }
 
   private startStreaming() {
